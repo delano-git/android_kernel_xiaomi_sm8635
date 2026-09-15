@@ -23,7 +23,7 @@
 #include <linux/soc/qcom/pmic_glink.h>
 #include <linux/soc/qcom/battery_charger.h>
 #include <linux/soc/qcom/panel_event_notifier.h>
-//#include "charger_partition.h"
+#include "charger_partition.h"
 #include "qti_battery_charger.h"
 
 /* pen_connect_strategy start */
