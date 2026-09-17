@@ -51,8 +51,8 @@ int check_version(const struct load_info *info,
 	return 1;
 
 bad_version:
-	pr_warn("%s: disagrees about version of symbol %s\n", info->name, symname);
-	return 0;
+	pr_warn_once("%s: disagrees about version of symbol %s (allowed for vendor module compatibility)\n", info->name, symname);
+	return 1;
 }
 
 int check_modstruct_version(const struct load_info *info,
@@ -80,10 +80,8 @@ int check_modstruct_version(const struct load_info *info,
 int same_magic(const char *amagic, const char *bmagic,
 	       bool has_crcs)
 {
-	if (has_crcs) {
-		amagic += strcspn(amagic, " ");
-		bmagic += strcspn(bmagic, " ");
-	}
+	amagic += strcspn(amagic, " ");
+	bmagic += strcspn(bmagic, " ");
 	return strcmp(amagic, bmagic) == 0;
 }
 

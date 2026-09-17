@@ -11589,3 +11589,9 @@ void call_trace_sched_update_nr_running(struct rq *rq, int count)
 {
         trace_sched_update_nr_running_tp(rq, count);
 }
+
+int set_mi_rq_balance_irq_task(struct task_struct *task)
+{
+	return 1;
+}
+EXPORT_SYMBOL(set_mi_rq_balance_irq_task);
