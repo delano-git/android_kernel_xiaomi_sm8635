@@ -433,6 +433,12 @@ config WATCH_QUEUE
 
 	  See Documentation/core-api/watch_queue.rst
 
+config MIHW
+	bool "MI driver"
+	default n
+	help
+	  Mi driver code
+
 config CROSS_MEMORY_ATTACH
 	bool "Enable process_vm_readv/writev syscalls"
 	depends on MMU

@@ -178,6 +178,12 @@ config USB_DWC3_MSM
 	  Driver supports host, device and dual-role modes of operation.
 	  Say 'Y' or 'M' if you have one such device.
 
+config EN_U1U2
+	tristate "EN U1U2 function"
+	help
+	  Keep USB U1/U2 low power entry enabled regardless of the
+	  devicetree quirks. Say 'Y' or 'M' here.
+
 config USB_DWC3_QCOM_MP
 	tristate "Qualcomm Platform"
 	depends on ARCH_QCOM || COMPILE_TEST

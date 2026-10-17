@@ -3389,8 +3389,13 @@ static void mdwc3_update_u1u2_value(struct dwc3 *dwc)
 
 	/* cache DT based initial value once */
 	if (!mdwc->read_u1u2) {
+#ifdef CONFIG_EN_U1U2
+		mdwc->cached_dis_u1_entry_quirk = false;
+		mdwc->cached_dis_u2_entry_quirk = false;
+#else
 		mdwc->cached_dis_u1_entry_quirk = dwc->dis_u1_entry_quirk;
 		mdwc->cached_dis_u2_entry_quirk = dwc->dis_u2_entry_quirk;
+#endif
 		mdwc->read_u1u2 = true;
 		pr_info("cached_dt_param: u1_disable:%d u2_disable:%d\n",
 			mdwc->cached_dis_u1_entry_quirk, mdwc->cached_dis_u2_entry_quirk);
